@@ -1,39 +1,58 @@
-import Head from "next/head"
+import {useState} from "react"
 import Image from "next/image"
-import Link from "next/link"
-import { GoLinkExternal, GoMarkGithub } from "react-icons/go"
-import { AiOutlineTwitter } from "react-icons/ai"
-import Hosts from "../public/_assets/data/hosts.json"
 
+import { GoMarkGithub } from "react-icons/go"
+import { AiOutlineTwitter } from "react-icons/ai"
+
+import Head from "../components/Head"
+
+import Hosts from "../../public/_assets/data/hosts.json"
 
 export default function Home() {
+	const [email, setEmail] = useState("")
+	const [message, setMessage] = useState("")
+	const [isError, setIsError] = useState(false)
+
+	async function handleSubscribe (e) {
+		e.preventDefault()
+		try {
+			const response = await fetch("/api/subscribe",  {
+				method: "POST",
+				body: JSON.stringify({ email }),
+			})
+
+			if(!response.ok) {
+				throw Error ("Something went wrong. Please contact us at codepixelsfm@gmail.com.")
+			}
+
+			const data = await response.json()
+			setEmail("")
+			setIsError(false)
+			setMessage(data.message)
+		} catch (error) {
+			console.log(error)
+			setIsError(true)
+			setMessage(error.message)
+		}
+	}
+	
 	return (
 		<div>
-			<Head>
-				<title>Code & Pixels</title>
-				<meta name="description" content="Explore the hybrid world of UX Engineering with Adekunle Oduye & Kelly Harrop" />
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
-
+			<Head />
 			<header className='pt-10 container mx-auto px-6 md:px-0'>
 				<nav >
 					<ul className='flex w-full items-center gap-6'>
-						<li className="md:pr-14">
+						<li className="md:pr-14 flex-1">
 							<Image width={157} height={58} src="/images/logo.png" />
 						</li>
-						<li className='flex-1'>
-							<Link href="#">
-								<a className='tc-base flex no-underline place-items-center'>Merch <GoLinkExternal className='pl-2 w-[1.25rem] h-[1.25rem]'/> </a>
-							</Link>
-						</li>
 						<li>
-							<a href="#">
-								<GoMarkGithub className='tc-base w-[1.25rem] h-[1.25rem]'/> 
+							<a href="https://github.com/Code-And-Pixels-Podcast" target={"_blank"} rel="noreferrer noopener">
+								<GoMarkGithub className='tc-base w-[1.25rem] h-[1.25rem] hover:fill-blue-600 transition-colors'/> 
 							</a>
 						</li>
 						<li>
-							<a href="#">
-								<AiOutlineTwitter className='tc-base w-[1.25rem] h-[1.25rem]'/> 
+							<a href="https://twitter.com/CodeandPixelsFM" target={"_blank"} rel="noreferrer noopener">
+								<AiOutlineTwitter className='tc-base w-[1.25rem] h-[1.25rem] hover:fill-blue-600 transition-colors'/> 
 							</a>
 						</li>
 					</ul>
@@ -41,7 +60,7 @@ export default function Home() {
 			</header>
 
 			<main className="pt-20">
-				<section className="md:grid grid-cols-12 gap-4 border-b-gray-600 border-b-2 pb-16 mb-16 container mx-auto px-6 md:px-0">
+				<section className="md:grid grid-cols-12 gap-4 container mx-auto px-6 md:px-0">
 					<div className="col-start-1 col-end-6 row-start-1 row-end-1 grid z-10">
 						<h1>
               A podcast about turning pixels into code.
@@ -55,6 +74,10 @@ export default function Home() {
 						{/* <Image width={800} height={439} src="/images/hero-illustration.svg" /> */}
 					</div>
 				</section>
+				{/* className="border-t-gray-600 border-t-0 -width pb-16 mb-16" */}
+				<div className="container mx-auto px-6 md:px-0 my-16">
+					<hr className="border-t-gray-600" />
+				</div>
 				<section className="grid md:grid-cols-12 gap-4 container mx-auto pb-36 px-6 md:px-0'">
 					<div className="col-span-4">
 						<h2>About Us</h2>
@@ -90,15 +113,19 @@ export default function Home() {
               Get updates when we launch new episodes. We promise not to spam.
 							</p>
 
-							<div className="flex flex-col md:flex-row gap-5">
+							<form className="flex flex-col md:flex-row gap-5" onSubmit={handleSubscribe}
+							>
 								<div className="flex flex-col pt-10 flex-1">
 									<label htmlFor="email" className="tc-darker">Email</label>
-									<input className="mt-2 p-4 rounded-sm bg-gray-300 placeholder:text-gray-700" type="email" name="email" id="email" placeholder="hello@codeandpixels.com" />
+									<input className="mt-2 p-4 rounded-sm bg-gray-300 placeholder:text-gray-700" type="email" name="email" id="email" placeholder="hello@codeandpixels.com" onChange={(e) => setEmail(e.target.value)} value={email} required />
 								</div>
 								<div className="flex items-end">
 									<button type="submit" className="rounded-sm bg-blue-500 p-4 text-gray-500 hover:bg-blue-600 transition-colors w-full md:w-auto">Subscribe</button>
 								</div>
-							</div>
+							</form>
+							{message && <div className={`p-4 ${isError ? "bg-red-900 border-red-800" : "bg-green-900 border-green-800"} rounded-[2px] mt-6 border-2`}>
+								{message}
+							</div>}
 						</div>
 					</div>
 				</section>

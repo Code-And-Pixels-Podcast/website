@@ -1,7 +1,7 @@
 module.exports = {
 	content: [
-		"./pages/**/*.{js,ts,jsx,tsx}",
-		"./components/**/*.{js,ts,jsx,tsx}",
+		"src/pages/**/*.{js,ts,jsx,tsx}",
+		"src/components/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
 		colors: {
@@ -19,6 +19,15 @@ module.exports = {
 				500: "#42A4FF",
 				600: "#1F7DD4",
 			},
+			"green": {
+				500: "#22c55e",
+				800: "#166534",
+				900: "#14532d"
+			},
+			"red": {
+				800: "#991b1b",
+				900: "#7f1d1d"
+			}
 		},
 		extend: {
 			fontFamily: {
