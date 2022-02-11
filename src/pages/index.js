@@ -6,7 +6,10 @@ import { AiOutlineTwitter } from "react-icons/ai"
 
 import Head from "../components/Head"
 
-import Hosts from "../../public/_assets/data/hosts.json"
+import HeaderImage from "/public/images/illustration-hero.svg"
+import SubscribeImage from "/public/images/illustration-subscribe.svg"
+
+import Hosts from "/public/_assets/data/hosts.json"
 
 export default function Home() {
 	const [email, setEmail] = useState("")
@@ -66,15 +69,13 @@ export default function Home() {
               A podcast about turning pixels into code.
 						</h1>
 						<p className="text-2xl items-end py-16 md:py-0">
-              Explore the hybrid world of UX Engineering with <a href="#">Adekunle Oduye</a> & <a href="#">Kelly Harrop</a> .
+              Explore the hybrid world of UX Engineering with <a href="https://twitter.com/adekunleoduye" target={"_blank"} rel="noreferrer noopener">Adekunle Oduye</a> & <a href="https://twitter.com/kellycodeschaos" target={"_blank"} rel="noreferrer noopener">Kelly Harrop</a> .
 						</p>
 					</div>
 					<div className="col-start-6 col-end-12 row-start-1 row-end-1">
-						<img src="/images/illustration-hero.svg" alt="" />							
-						{/* <Image width={800} height={439} src="/images/hero-illustration.svg" /> */}
+						<Image width={693} height={439} src={HeaderImage} />
 					</div>
 				</section>
-				{/* className="border-t-gray-600 border-t-0 -width pb-16 mb-16" */}
 				<div className="container mx-auto px-6 md:px-0 my-16">
 					<hr className="border-t-gray-600" />
 				</div>
@@ -90,7 +91,7 @@ export default function Home() {
 							{Hosts.map((host) => (
 								<article key={host.name.toLowerCase().replace(" ", "-")}>
 									<header>
-										<img src={host.imgPath} alt="" />
+										<Image width={320} height={320} src={host.imgPath} />
 										<h3 className="font-sans-bold text-lg pt-5">{host.name}, {host.company}</h3>
 									</header>
 									<div>
@@ -105,7 +106,7 @@ export default function Home() {
 				<section className="bg-gray-400">
 					<div className="container mx-auto flex flex-col md:flex-row py-12 md:py-24 gap-10 md:gap-20 px-6 md:px-0'">
 						<div>
-							<Image width={380} height={264} src="/images/illustration-subscribe.svg" />
+							<Image width={380} height={264} src={SubscribeImage} />
 						</div>
 						<div className="justify-self-end">
 							<h2>Launching Soon</h2>
