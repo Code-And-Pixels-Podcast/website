@@ -5,39 +5,39 @@ module.exports = {
 	],
 	theme: {
 		colors: {
-			"white": "#FFFFFF",
-			"gray": {
+			white: "#FFFFFF",
+			gray: {
 				100: "#AEAEAE",
 				200: "#A7B5CB",
 				300: "#30353C",
 				400: "#202327",
 				500: "#191B1E",
 				600: "#2B323F",
-				700: "#797979"
+				700: "#797979",
 			},
-			"blue": {
+			blue: {
 				500: "#42A4FF",
 				600: "#1F7DD4",
 			},
-			"green": {
+			green: {
 				500: "#22c55e",
 				800: "#166534",
-				900: "#14532d"
+				900: "#14532d",
 			},
-			"red": {
+			red: {
 				800: "#991b1b",
-				900: "#7f1d1d"
-			}
+				900: "#7f1d1d",
+			},
 		},
 		extend: {
 			fontFamily: {
-				"sans": ["montserratmedium", "sans"],
-				"sans-bold": ["montserratbold", "sans"] 
+				sans: ["montserrat", "sans"],
+				"sans-bold": ["montserratbold", "sans"],
 			},
 			fontSize: {
-				"5xl": "2.625rem"
-			}
+				"5xl": "2.625rem",
+			},
 		},
 	},
 	plugins: [],
-}
+};
