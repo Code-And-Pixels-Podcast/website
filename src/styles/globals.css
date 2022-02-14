@@ -20,7 +20,7 @@
   }
 
   a {
-    @apply text-blue-500 underline ;
+    @apply text-blue-500 underline;
   }
 
   p {
@@ -36,20 +36,20 @@
 }
 
 @font-face {
-    font-family: 'montserratmedium';
-    src: url('../../public/_assets/fonts/montserrat-medium-webfont.woff2') format('woff2'),
-         url('../../public/_assets/fonts/montserrat-medium-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: "montserrat";
+  src: url("../../public/_assets/fonts/montserrat-regular-webfont.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'montserratbold';
-    src: url('../../public/_assets/fonts/montserrat-bold-webfont.woff2') format('woff2'),
-         url('../../public/_assets/fonts/montserrat-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: "montserratbold";
+  src: url("../../public/_assets/fonts/montserrat-bold-webfont.woff2")
+      format("woff2"),
+    url("../../public/_assets/fonts/montserrat-bold-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 html,
@@ -58,6 +58,14 @@ body {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+}
 
 * {
   box-sizing: border-box;
