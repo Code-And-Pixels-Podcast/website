@@ -1,15 +1,26 @@
 import NextHead from "next/head"
 
-export default function Head({
+export default function Meta({
 	title = "Code & Pixels", 
-	description = "Explore the hybrid world of UX Engineering with Adekunle Oduye & Kelly Harrop"}) {
+	description = "Explore the hybrid world of UX Engineering with Adekunle Oduye & Kelly Harrop",
+	keywords = "podcast, ux engineer, design engineer, design systems ",
+	ogUrl = "",
+	ogType = "website",
+	ogTitle = title,
+	ogDescription = description,
+	ogImg = "/images/illustration-hero.svg",
+	ogSiteName = "Adekunle Oduye",
+}) {
 	return (
 		<NextHead>
 			<title>{title}</title>
 			<meta name="description" content={description} />
-			<meta name="msapplication-TileColor" content="#ffffff" />
+			<meta name="keywords" content={keywords} />
+			<meta name="msapplication-TileColor" content="#191B1E" />
 			<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
-			<meta name="theme-color" content="#ffffff"></meta>
+			<meta name="theme-color" content="#191B1E"></meta>
+
+			{/* Favicon */}
 			<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png" />
 			<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png" />
 			<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png" />
@@ -25,6 +36,21 @@ export default function Head({
 			<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
 			<link rel="manifest" href="/favicon/manifest.json" />
 			<link rel="icon" href="/favicon/favicon.ico" />
+
+			{/* <!-- Facebook Meta Tags --> */}
+			<meta property="og:url" content={`https://codeandpixels.fm/${ogUrl}`} />
+			<meta property="og:type" content={ogType} />
+			<meta property="og:title" content={ogTitle} />
+			<meta property="og:description" content={ogDescription} />
+			<meta property="og:image" content={`https://codeandpixels.fm/${ogImg}`} />
+			<meta property="og:site_name" content={ogSiteName} />
+
+			{/* <!-- Twitter Meta Tags --> */}
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta property="twitter:url" content={`https://codeandpixels.fm/${ogUrl}`} />
+			<meta name="twitter:title" content={ogTitle} />
+			<meta name="twitter:description" content={ogDescription} />
+			<meta name="twitter:image" content={`https://codeandpixels.fm/${ogImg}`} />
 		</NextHead>
 	)
 }
