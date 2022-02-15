@@ -4,7 +4,7 @@ import Image from "next/image";
 import { GoMarkGithub } from "react-icons/go";
 import { AiOutlineTwitter } from "react-icons/ai";
 
-import Head from "../components/Head";
+import Meta from "../components/Meta";
 
 import HeaderImage from "/public/images/illustration-hero.svg";
 import SubscribeImage from "/public/images/illustration-subscribe.svg";
@@ -43,7 +43,7 @@ export default function Home() {
 
 	return (
 		<div>
-			<Head />
+			<Meta />
 			<header className="pt-10 container mx-auto px-6">
 				<nav className="flex justify-between">
 					<Image width={157} height={58} src="/images/logo.svg" />
