@@ -2,14 +2,14 @@ import NextHead from "next/head"
 
 export default function Meta({
 	title = "Code & Pixels", 
-	description = "Explore the hybrid world of UX Engineering with Adekunle Oduye & Kelly Harrop",
+	description = "Explore the hybrid world of UX Engineering with Adekunle Oduye & Kelly Harrop.",
 	keywords = "podcast, ux engineer, design engineer, design systems",
 	ogUrl = "",
 	ogType = "website",
 	ogTitle = title,
 	ogDescription = description,
-	ogImg = "/images/illustration-hero.svg",
-	ogSiteName = "Adekunle Oduye",
+	ogImg = "/images/og-logo.png",
+	ogSiteName = "Code & Pixels",
 }) {
 	return (
 		<NextHead>
