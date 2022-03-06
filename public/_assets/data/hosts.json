@@ -1,16 +1,16 @@
 [
-  {
-    "name": "Adekunle Oduye",
-    "company": "Consultant",
-    "location": "Brooklyn, NY",
-    "bio": "Adekunle specializes in product design, front-end development and design systems.",
-    "imgPath": "/images/adekunle-oduye.png"
-  },
-  {
-    "name": "Kelly Harrop",
-    "company": "Intuit",
-    "location": "Dallas, TX",
-    "bio": "Kelly specializes in consolidation across disparate design systems and design token management.",
-    "imgPath": "/images/kelly-harrop.png"
-  }
+	{
+		"name": "Adekunle Oduye",
+		"company": "Plaid",
+		"location": "Brooklyn, NY",
+		"bio": "Adekunle specializes in product design, front-end development and design systems.",
+		"imgPath": "/images/adekunle-oduye.png"
+	},
+	{
+		"name": "Kelly Harrop",
+		"company": "Intuit",
+		"location": "Dallas, TX",
+		"bio": "Kelly specializes in consolidation across disparate design systems and design token management.",
+		"imgPath": "/images/kelly-harrop.png"
+	}
 ]
