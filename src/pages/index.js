@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import { GoMarkGithub } from "react-icons/go";
-import { AiOutlineTwitter } from "react-icons/ai";
+import { AiOutlineTwitter, AiFillYoutube } from "react-icons/ai";
 
 import Meta from "../components/Meta";
 
@@ -10,6 +9,8 @@ import HeaderImage from "/public/images/illustration-hero.svg";
 import SubscribeImage from "/public/images/illustration-subscribe.svg";
 
 import Hosts from "/public/_assets/data/hosts.json";
+
+import Script from "next/script";
 
 export default function Home() {
 	const [email, setEmail] = useState("");
@@ -42,25 +43,29 @@ export default function Home() {
 	}
 
 	return (
-		<div>
+		<>
+			{/* TODO: Update to use our podcast URL */}
+			<Script src="https://www.buzzsprout.com/231452.js?player=large&container_id=episodelist" />
 			<Meta />
 			<header className="pt-10 container mx-auto px-6">
 				<nav className="flex justify-between">
 					<Image width={157} height={58} src="/images/logo.svg" />
 					<ul className="social grid grid-flow-col gap-4">
 						<li className="hover:opacity-80 transition-opacity">
+							{/* TODO: Updaet with youtube link */}
 							<a
-								href="https://github.com/Code-And-Pixels-Podcast"
+								href="https://youtube.com/CodeandPixelsFM"
 								target={"_blank"}
 								rel="noreferrer noopener"
 								className="p-4 flex"
 							>
-								<GoMarkGithub
-									className="tc-base transition-colors"
-									size="1.6em"
+								<AiFillYoutube
+									className="tc-base w-8 transition-colors"
+									size="2em"
 								/>
 							</a>
 						</li>
+
 						<li className="hover:opacity-80 transition-opacity">
 							<a
 								href="https://twitter.com/CodeandPixelsFM"
@@ -91,6 +96,7 @@ export default function Home() {
 								href="https://twitter.com/adekunleoduye"
 								target={"_blank"}
 								rel="noreferrer noopener"
+								className="inline-block"
 							>
 								Adekunle Oduye
 							</a>{" "}
@@ -99,9 +105,10 @@ export default function Home() {
 								href="https://twitter.com/kellycodeschaos"
 								target={"_blank"}
 								rel="noreferrer noopener"
+								className="inline-block"
 							>
 								Kelly Harrop
-							</a>{" "}
+							</a>
 							.
 						</p>
 					</div>
@@ -112,18 +119,40 @@ export default function Home() {
 				<div className="container mx-auto py-10 md:px-0 my-16">
 					<hr className="border-t-gray-600" />
 				</div>
-				<section className="grid md:grid-cols-12 gap-4 container mx-auto pb-36 px-6 md:px-0'">
-					<div className="col-span-4">
+				<section className="grid md:grid-cols-3 container mx-auto px-6 gap-8  md:gap-10">
+					<div className="col-span-1">
+						<h2>Episodes</h2>
+					</div>
+					<div className="md:col-span-2">
+						<p className="leading-relaxed pb-12">
+							Listen to episodes with the player below or{" "}
+							{/* TODO: Update with Youtube channel link */}
+							<a href="#" target={"_blank"} rel="noreferrer noopener">
+								watch us on YouTube
+							</a>
+							.
+						</p>
+						<div id="episodelist" />
+					</div>
+				</section>
+				<div className="container mx-auto py-10 md:px-0 my-16">
+					<hr className="border-t-gray-600" />
+				</div>
+				<section className="grid md:grid-cols-3 gap-8 md:gap-10 container mx-auto pb-36 px-6 md:px-0'">
+					<div className="col-span-1">
 						<h2>About Us</h2>
 					</div>
-					<div className="col-span-8">
-						<p className="pb-16">
+					<div className="col-span-2">
+						<p className="pb-16 leading-relaxed">
 							A couple of UX Engineers, navigating the intersection between
 							design, development and everything inbetween.
 						</p>
-						<div className="grid md:grid-cols-2 gap-10">
+						<div className="grid md:grid-cols-2 gap-16">
 							{Hosts.map((host) => (
-								<article key={host.name.toLowerCase().replace(" ", "-")}>
+								<article
+									key={host.name.toLowerCase().replace(" ", "-")}
+									className="sm:mb-16"
+								>
 									<header>
 										<Image width={320} height={320} src={host.imgPath} />
 										<h3 className="font-sans-bold text-lg pt-5">
@@ -140,26 +169,28 @@ export default function Home() {
 					</div>
 				</section>
 				<section className="bg-gray-400">
-					<div className="container mx-auto flex flex-col md:flex-row py-12 md:py-24 gap-10 md:gap-20 px-6 md:px-0'">
-						<div>
-							<Image width={380} height={264} src={SubscribeImage} />
+					<div className="container md:grid md:grid-cols-3 px-6 mx-auto py-12 md:gap-10 py-10 md:py-24 md:px-0'">
+						<div className="col-span-1 flex justify-center mt-8 md:mt-0 mb-10 md:mb-0 md:mr-6 md:justify-start items-start md:w-auto">
+							<div className=" w-[250px] md:w-auto">
+								<Image layout="intrinsic" src={SubscribeImage} />
+							</div>
 						</div>
-						<div className="justify-self-end">
-							<h2>Launching Soon</h2>
+						<div className="col-span-2 text-center md:text-left">
+							<h2>Stay up to date</h2>
 							<p className="pt-8 text-xl mb-10">
 								Get updates when we launch new episodes. We promise not to spam.
 							</p>
 
 							<form
-								className="flex flex-col md:flex-row gap-5"
+								className="flex flex-col md:flex-row gap-5 text-left"
 								onSubmit={handleSubscribe}
 							>
-								<div className="flex flex-col pt-10 flex-1">
+								<div className="flex flex-col pt-10">
 									<label htmlFor="email" className="tc-darker">
 										Email
 									</label>
 									<input
-										className="mt-2 p-4 rounded-lg bg-gray-300 placeholder:text-gray-700"
+										className="mt-2 p-4 rounded-lg bg-gray-300 placeholder:text-gray-700 md:w-[400px]"
 										type="email"
 										name="email"
 										id="email"
@@ -172,7 +203,7 @@ export default function Home() {
 								<div className="flex items-end">
 									<button
 										type="submit"
-										className="rounded-lg bg-blue-500 p-4 text-gray-500 hover:bg-blue-600 transition-colors w-full md:w-auto"
+										className="rounded-lg bg-blue-500 font-sans-bold p-4 text-gray-500 hover:bg-blue-400 transition-colors w-full md:w-auto"
 									>
 										Subscribe
 									</button>
@@ -195,7 +226,7 @@ export default function Home() {
 			</main>
 
 			<footer className="bg-gray-400 pb-16">
-				<div className="container pt-20 mx-auto md:grid grid-cols-2 md:px-2 px-4 py-4">
+				<div className="container pt-20 text-center md:text-left mx-auto md:grid grid-cols-2 md:px-2 px-4 py-4">
 					<span className="tc-darker text-sm">
 						Copyright © 2022 Code & Pixels. All rights reserved.
 					</span>
@@ -218,11 +249,19 @@ export default function Home() {
 							>
 								tailwind
 							</a>
+							. View our source code{" "}
+							<a
+								href="https://github.com/Code-And-Pixels-Podcast"
+								target={"_blank"}
+								rel="noreferrer noopener"
+							>
+								on GitHub
+							</a>
 							.
 						</span>
 					</div>
 				</div>
 			</footer>
-		</div>
+		</>
 	);
 }
