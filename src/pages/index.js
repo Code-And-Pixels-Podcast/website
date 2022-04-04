@@ -91,11 +91,12 @@ export default function Home() {
 							<br /> into code.
 						</h1>
 						<p className="text-2xl items-end py-16 md:py-0 leading-relaxed">
-							Explore the hybrid world of UX Engineering with{" "}
+							Explore the hybrid design technology space with{" "}
 							<a
 								href="https://twitter.com/adekunleoduye"
 								target={"_blank"}
 								rel="noreferrer noopener"
+								className="inline-block"
 							>
 								Adekunle Oduye
 							</a>{" "}
