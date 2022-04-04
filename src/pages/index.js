@@ -96,20 +96,20 @@ export default function Home() {
 								href="https://twitter.com/adekunleoduye"
 								target={"_blank"}
 								rel="noreferrer noopener"
-								className="inline-block"
 							>
 								Adekunle Oduye
 							</a>{" "}
 							&{" "}
-							<a
-								href="https://twitter.com/kellycodeschaos"
-								target={"_blank"}
-								rel="noreferrer noopener"
-								className="inline-block"
-							>
-								Kelly Harrop
-							</a>
-							.
+							<span className="inline-block">
+								<a
+									href="https://twitter.com/kellycodeschaos"
+									target={"_blank"}
+									rel="noreferrer noopener"
+								>
+									Kelly Harrop
+								</a>
+								.
+							</span>
 						</p>
 					</div>
 					<div className="col-start-7 col-end-13 row-start-1 row-end-1">
@@ -226,13 +226,13 @@ export default function Home() {
 			</main>
 
 			<footer className="bg-gray-400 pb-16">
-				<div className="container pt-20 text-center md:text-left mx-auto md:grid grid-cols-2 md:px-2 px-4 py-4">
-					<span className="tc-darker text-sm">
+				<div className="container items-center pt-20 text-center md:text-left mx-auto md:grid grid-cols-2 md:px-2 px-4 py-4">
+					<div className="tc-darker text-sm mb-4 md:mb-0">
 						Copyright © 2022 Code & Pixels. All rights reserved.
-					</span>
+					</div>
 
 					<div className="justify-self-end">
-						<span className="tc-darker text-sm">
+						<div className="tc-darker text-sm">
 							Built with{" "}
 							<a
 								href="https://nextjs.org/"
@@ -249,16 +249,16 @@ export default function Home() {
 							>
 								tailwind
 							</a>
-							. View our source code{" "}
+							. View on{" "}
 							<a
 								href="https://github.com/Code-And-Pixels-Podcast"
 								target={"_blank"}
 								rel="noreferrer noopener"
 							>
-								on GitHub
+								GitHub
 							</a>
 							.
-						</span>
+						</div>
 					</div>
 				</div>
 			</footer>
