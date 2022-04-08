@@ -45,16 +45,15 @@ export default function Home() {
 	return (
 		<>
 			{/* TODO: Update to use our podcast URL */}
-			<Script src="https://www.buzzsprout.com/231452.js?player=large&container_id=episodelist" />
+			<Script src="https://www.buzzsprout.com/1958356.js?player=large&container_id=episodelist" />
 			<Meta />
 			<header className="pt-10 container mx-auto px-6">
 				<nav className="flex justify-between">
 					<Image width={157} height={58} src="/images/logo.svg" />
 					<ul className="social grid grid-flow-col gap-4">
 						<li className="hover:opacity-80 transition-opacity">
-							{/* TODO: Updaet with youtube link */}
 							<a
-								href="https://youtube.com/CodeandPixelsFM"
+								href="https://www.youtube.com/channel/UC5vCetuHLcgqyC3LD00pUuA"
 								target={"_blank"}
 								rel="noreferrer noopener"
 								className="p-4 flex"
@@ -127,8 +126,11 @@ export default function Home() {
 					<div className="md:col-span-2">
 						<p className="leading-relaxed pb-12">
 							Listen to episodes with the player below or{" "}
-							{/* TODO: Update with Youtube channel link */}
-							<a href="#" target={"_blank"} rel="noreferrer noopener">
+							<a
+								href="https://www.youtube.com/channel/UC5vCetuHLcgqyC3LD00pUuA"
+								target={"_blank"}
+								rel="noreferrer noopener"
+							>
 								watch us on YouTube
 							</a>
 							.
