@@ -2,6 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 import { AiOutlineTwitter, AiFillYoutube } from "react-icons/ai";
+import { BsRssFill } from "react-icons/bs";
 
 import Meta from "../components/Meta";
 
@@ -78,6 +79,19 @@ export default function Home() {
 								/>
 							</a>
 						</li>
+						<li className="hover:opacity-80 transition-opacity">
+							<a
+								href="https://feeds.buzzsprout.com/1958356.rss"
+								target={"_blank"}
+								rel="noreferrer noopener"
+								className="p-4 flex"
+							>
+								<BsRssFill
+									className="tc-base w-6 transition-colors"
+									size="2em"
+								/>
+							</a>
+						</li>
 					</ul>
 				</nav>
 			</header>
@@ -135,7 +149,14 @@ export default function Home() {
 							</a>
 							.
 						</p>
-						<div id="episodelist" />
+						<div id="episodelist" className="mb-4" />
+						<a
+							href="https://feeds.buzzsprout.com/1958356.rss"
+							className="no-underline flex items-center"
+						>
+							<BsRssFill className="inline mr-3" />
+							<span>RSS feed</span>
+						</a>
 					</div>
 				</section>
 				<div className="container mx-auto py-10 md:px-0 my-16">
