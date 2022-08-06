@@ -50,7 +50,14 @@ export default function Home() {
 			<Meta />
 			<header className="pt-10 container mx-auto px-6">
 				<nav className="flex justify-between">
-					<Image width={157} height={58} src="/images/logo.svg" />
+					<div className="flex w-28 md:!w-40">
+						<Image
+							width={157}
+							height={58}
+							src="/images/logo.svg"
+							objectFit="contain"
+						/>
+					</div>
 					<ul className="social grid grid-flow-col gap-4">
 						<li className="hover:opacity-80 transition-opacity">
 							<a
