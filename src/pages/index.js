@@ -1,8 +1,13 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import { AiOutlineTwitter, AiFillYoutube } from "react-icons/ai";
+import {
+	AiOutlineTwitter,
+	AiFillYoutube,
+	AiOutlineGlobal,
+} from "react-icons/ai";
 import { BsRssFill } from "react-icons/bs";
+
 
 import Meta from "../components/Meta";
 
@@ -114,7 +119,7 @@ export default function Home() {
 							Explore the hybrid design technology space with{" "}
 							<a
 								href="https://twitter.com/adekunleoduye"
-								target={"_blank"}
+								target="_blank"
 								rel="noreferrer noopener"
 								className="inline-block"
 							>
@@ -185,13 +190,32 @@ export default function Home() {
 									className="sm:mb-16"
 								>
 									<header>
-										<Image width={320} height={320} src={host.imgPath} />
+										<Image
+											width={320}
+											height={320}
+											src={host.imgPath}
+											className="rounded-xl"
+										/>
 										<h3 className="font-sans-bold text-lg pt-5">
 											{host.name}, {host.company}
 										</h3>
 									</header>
 									<div>
-										<p className="text-sm tc-dark pt-5">{host.location}</p>
+										<div className="pt-2 flex gap-2">
+											<a href={host.website} target="_blank" rel="noreferrer">
+												<AiOutlineGlobal
+													size={20}
+													aria-label={`${host.name}'s website`}
+												/>
+											</a>
+											<a href={host.x} target="_blank" rel="noreferrer">
+												<AiOutlineTwitter
+													size={20}
+													aria-label={`${host.name}'s X profile`}
+												/>
+											</a>
+										</div>
+										<p className="text-sm tc-dark pt-4">{host.location}</p>
 										<p className="pt-2 text-lg leading-relaxed">{host.bio}</p>
 									</div>
 								</article>
