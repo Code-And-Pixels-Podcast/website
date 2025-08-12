@@ -224,7 +224,7 @@ export default function Home() {
 					</div>
 				</section>
 				<section className="bg-gray-400">
-					<div className="container md:grid md:grid-cols-3 px-6 mx-auto py-12 md:gap-10 py-10 md:py-24 md:px-0'">
+					<div className="container md:grid md:grid-cols-3 px-6 mx-auto md:gap-10 py-10 md:py-24 md:px-0'">
 						<div className="col-span-1 flex justify-center mt-8 md:mt-0 mb-10 md:mb-0 md:mr-6 md:justify-start items-start md:w-auto">
 							<div className=" w-[250px] md:w-auto">
 								<Image layout="intrinsic" src={SubscribeImage} />
