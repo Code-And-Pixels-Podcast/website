@@ -3,7 +3,7 @@ async function addSubscriber(email) {
 		throw new Error("Email is required");
 	}
 
-	const baseUrl = `https://api.beehiiv.com/v2/publications/${process.env.BEEHIVE_PUBLICATION_ID}/subscriptionssss`;
+	const baseUrl = `https://api.beehiiv.com/v2/publications/${process.env.BEEHIVE_PUBLICATION_ID}/subscriptions`;
 	const headers = {
 		"Content-Type": "application/json",
 		Authorization: `Bearer ${process.env.BEEHIVE_API_KEY}`,
@@ -23,6 +23,7 @@ async function addSubscriber(email) {
 	}
 
 	const existingData = await existingRes.json();
+	console.log({ existingData });
 	const alreadySubscribed = existingData?.data?.length > 0;
 
 	if (alreadySubscribed) {
